@@ -1,0 +1,14 @@
+# Season scenes behind a translucent panel. Layout: photo.
+name: seasons_photo
+title: Seasons Photo
+device: band9
+layout: photo
+style: {muted: "#D0D0D0"}
+slots:
+  background:
+    source: season
+    images: {spring: assets/season/spring.png, summer: assets/season/summer.png, autumn: assets/season/autumn.png, winter: assets/season/winter.png}
+  overlay:
+    source: time_of_day
+    images: {dawn: assets/light/dawn.png, day: assets/light/day.png, dusk: assets/light/dusk.png, night: assets/light/night.png}
+  stats: [stress, heart_rate]

@@ -1,0 +1,38 @@
+# A day around Taiwan: the full-screen scene follows the hour. Layout: scene (full bleed).
+# All scenes are original illustrations drawn by tools/make_taiwan.py.
+name: taiwan_scenes
+title: Taiwan Scenes
+device: band9
+layout: scene
+style: {stroke: 2, stroke_color: "#00000080", muted: "#F4F4F4"}
+slots:
+  scene:
+    box: [0, 0, 100%, 100%]
+    source: hour
+    images:
+      "5-8": assets/scenes/alishan.png
+      "9-15": assets/scenes/sun_moon_lake.png
+      "16-19": assets/scenes/jiufen.png
+      "20-4": assets/scenes/taipei101.png
+  place:
+    kind: caption
+    source: hour
+    x: 50%
+    y: 5.5%
+    anchor: top
+    size: 2.6%
+    stroke: 0
+    bg: "#00000070"
+    texts: {"5-8": 阿里山日出, "9-15": 日月潭, "16-19": 九份老街, "20-4": 台北 101}
+  card:          {fill: "#00000040"}
+  battery_card:  {fill: "#00000040"}
+  steps_pill:    {fill: "#00000040"}
+  card_art:
+    source: stress_level
+    images: {calm: assets/bun/calm.png, normal: assets/bun/normal.png, medium: assets/bun/medium.png, high: assets/bun/high.png}
+  steps:
+    items: [{source: steps, icon: assets/icons/steps.png}]
+variants:
+  round:
+    slots:
+      place: {y: 10%}

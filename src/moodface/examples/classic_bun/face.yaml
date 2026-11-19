@@ -1,0 +1,15 @@
+# A steamed bun that gets hotter as stress rises. Layout: classic.
+name: classic_bun
+title: Stress Bun
+device: band9
+background: "#161210"
+layout: classic
+style: {accent: "#F0A060", muted: "#9A8F88"}
+slots:
+  character:
+    source: stress_level
+    images: {calm: assets/bun/calm.png, normal: assets/bun/normal.png, medium: assets/bun/medium.png, high: assets/bun/high.png}
+  caption:
+    texts: {calm: 熱呼呼，好放鬆～, normal: 剛出爐，狀態不錯！, medium: 蒸氣有點多，深呼吸, high: 快蒸爆了，休息一下}
+  bar: {}
+  stats: [stress, steps, heart_rate]

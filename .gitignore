@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+
+# Third-party tools (downloaded separately, never redistributed)
+vendor/
+
+# Generated output
+build/
+preview/
+
+# Local backups
+archive/
+
+.DS_Store
+
+# Local art/example generators (not published)
+studio/

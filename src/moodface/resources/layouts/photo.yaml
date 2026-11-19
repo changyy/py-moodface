@@ -1,0 +1,21 @@
+description: Full-screen photo or artwork with a translucent panel holding the time and stats
+slots:
+  background: {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  overlay:    {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  panel:      {kind: panel, box: [6%, 70%, 88%, 23%], fill: "#00000088", radius: 16, default: true}
+  time:       {kind: time, x: 50%, y: 72.5%, anchor: top, size: 9%, default: true}
+  date:       {kind: date, x: 50%, y: 82.5%, anchor: top, size: 2.8%, format: "MM/DD 週W", default: true}
+  stats:      {kind: stats, box: [8%, 86%, 84%, 5%], arrange: inline, size: 2.5%, items: [stress, heart_rate], default: true}
+variants:
+  square:
+    slots:
+      panel: {box: [6%, 66%, 88%, 28%]}
+      time:  {y: 68%, size: 12%}
+      date:  {y: 81%, size: 3.6%}
+      stats: {box: [8%, 86%, 84%, 6%], size: 3.4%}
+  round:
+    slots:
+      panel: {box: [18%, 61%, 64%, 29%], radius: 28}
+      time:  {y: 63%, size: 10%}
+      date:  {y: 74.5%, size: 3.2%}
+      stats: {box: [22%, 79.5%, 56%, 6%], size: 3%}

@@ -1,0 +1,17 @@
+# Weather-like cloud by stress level above a grid of values. Layout: stats.
+name: stats_cloud
+title: Stress Cloud Stats
+device: band9
+background: "#0E1422"
+layout: stats
+style: {muted: "#8A96B0"}
+slots:
+  icon:
+    source: stress_level
+    images: {calm: assets/cloud/calm.png, normal: assets/cloud/normal.png, medium: assets/cloud/medium.png, high: assets/cloud/high.png}
+  stats:
+    items:
+      - stress
+      - heart_rate
+      - {source: steps, digits: 5}
+      - battery

@@ -1,0 +1,44 @@
+# Stress test face: checks the stress source, threshold switching and animation on a real band.
+name: stress_test
+title: Stress Test
+device: band9
+background: "#000000"
+widgets:
+  - type: imagelist            # background A/B/C/D by stress threshold
+    name: bg_stress
+    source: stress
+    x: 0
+    y: 0
+    images:
+      0: assets/bg/a.png
+      40: assets/bg/b.png
+      60: assets/bg/c.png
+      80: assets/bg/d.png
+  - type: number
+    name: hour
+    source: hour
+    x: 36
+    y: 130
+    digits: 2
+    images: assets/digits48/{n}.png
+  - type: number
+    name: minute
+    source: minute
+    x: 100
+    y: 130
+    digits: 2
+    images: assets/digits48/{n}.png
+  - type: number               # raw stress value
+    name: stress_value
+    source: stress
+    x: 69
+    y: 230
+    digits: 3
+    align: center
+    zero_pad: false
+    images: assets/digits28/{n}.png
+  - type: animation            # pulsing dot
+    x: 64
+    y: 300
+    frames: assets/anim/*.png
+    interval_ms: 120

@@ -1,0 +1,23 @@
+description: Hours and minutes stacked in large digits, date on top, one line of stats at the bottom
+slots:
+  background: {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  date:       {kind: date, x: 50%, y: 9%, anchor: top, size: 3.4%, format: "MM/DD 週W", default: true}
+  hours:      {kind: time, x: 50%, y: 32%, anchor: center, size: 25%, format: "HH", default: true}
+  minutes:    {kind: time, x: 50%, y: 58%, anchor: center, size: 25%, format: "MM", default: true, color: "#FFC860"}
+  character:  {kind: art, box: [30%, 70%, 40%, 13%], fit: contain}
+  stats:      {kind: stats, box: [4%, 84%, 92%, 6%], arrange: inline, size: 2.6%, items: [steps, heart_rate], default: true}
+variants:
+  square:
+    slots:
+      date:      {y: 5%, size: 4%}
+      hours:     {y: 30%, size: 30%}
+      minutes:   {y: 60%, size: 30%}
+      character: {box: [38%, 75%, 24%, 12%]}
+      stats:     {box: [5%, 88%, 90%, 6%], size: 3.6%}
+  round:
+    slots:
+      date:      {y: 11%, size: 3.8%}
+      hours:     {y: 32%, size: 25%}
+      minutes:   {y: 58%, size: 25%}
+      character: {box: [40%, 71%, 20%, 11%]}
+      stats:     {box: [22%, 83%, 56%, 6%], size: 3.2%}

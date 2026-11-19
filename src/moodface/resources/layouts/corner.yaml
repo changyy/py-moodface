@@ -1,0 +1,29 @@
+description: Hours and minutes stacked at the top left, weekday, date and stats on the right, artwork filling the lower half
+slots:
+  background: {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  hours:      {kind: time, format: HH, x: 14%, y: 9%, anchor: top-left, size: 15%, default: true}
+  minutes:    {kind: time, format: MM, x: 14%, y: 23%, anchor: top-left, size: 15%, default: true, color: "#FFC860"}
+  weekday:    {kind: weekday, x: 90%, y: 11%, anchor: top-right, size: 2.7%, bg: "#FFFFFF33", stroke: 0, default: true}
+  date:       {kind: date, format: "MM/DD", x: 90%, y: 16.5%, anchor: top-right, size: 2.9%, default: true}
+  stats:      {kind: stats, box: [54%, 23%, 40%, 13%], arrange: rows, size: 2.3%, value_size: 3%, items: [stress, heart_rate], default: true}
+  character:  {kind: art, box: [0, 40%, 100%, 46%], fit: contain}
+  caption:    {kind: caption, x: 50%, y: 89%, anchor: center, size: 3%, source: stress_level}
+variants:
+  square:
+    slots:
+      hours:     {x: 8%, y: 6%, size: 17%}
+      minutes:   {x: 8%, y: 23%, size: 17%}
+      weekday:   {x: 92%, y: 7%, size: 3.4%}
+      date:      {x: 92%, y: 13%, size: 3.6%}
+      stats:     {box: [55%, 22%, 39%, 16%], size: 3%, value_size: 4%}
+      character: {box: [0, 42%, 100%, 46%]}
+      caption:   {y: 92%, size: 3.6%}
+  round:
+    slots:
+      hours:     {x: 20%, y: 14%, size: 15%}
+      minutes:   {x: 20%, y: 29%, size: 15%}
+      weekday:   {x: 82%, y: 16%, size: 3%}
+      date:      {x: 82%, y: 22%, size: 3.2%}
+      stats:     {box: [52%, 29%, 34%, 14%], size: 2.8%, value_size: 3.6%}
+      character: {box: [10%, 45%, 80%, 40%]}
+      caption:   {y: 89%, size: 3.4%}

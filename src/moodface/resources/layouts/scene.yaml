@@ -1,0 +1,44 @@
+description: Illustration on top, time at the lower left with weekday and date beside it (above it on bands), then cards for a picture, battery and steps
+slots:
+  background:    {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  scene:         {kind: art, box: [0, 0, 100%, 56%], fit: cover}
+  time:          {kind: time, x: 6%, y: 63.2%, anchor: left, size: 9.4%, spacing: -1.5%, gap: -1%, default: true}
+  weekday:       {kind: weekday, x: 94%, y: 54.2%, anchor: top-right, size: 2.5%, bg: "#FFFFFF", color: "#3A4A7A", stroke: 0, default: true}
+  date:          {kind: date, x: 7%, y: 54.4%, anchor: top-left, size: 2.8%, format: "MM.DD", default: true}
+  card:          {kind: panel, box: [6%, 68%, 62%, 15%], fill: "#FFFFFF40", outline: "#FFFFFFAA", radius: 14, default: true}
+  card_art:      {kind: art, box: [8%, 69%, 36%, 13%], fit: contain}
+  card_value:    {kind: stats, box: [42%, 69.5%, 24%, 4.5%], arrange: inline, size: 2.4%, value_size: 3.2%, items: [{source: temp_c, label: "", unit: "°", digits: 2}], default: true}
+  battery_card:  {kind: panel, box: [72%, 68%, 22%, 15%], fill: "#FFFFFF40", outline: "#FFFFFFAA", radius: 14, default: true}
+  battery_bar:   {kind: bar, x: 83%, y: 69.8%, anchor: top, w: 9%, h: 7.4%, direction: up, source: battery, radius: 4, default: true}
+  battery_value: {kind: stats, box: [72%, 78%, 22%, 4%], arrange: inline, size: 2.2%, value_size: 2.7%, items: [{source: battery, label: "", unit: "%"}], default: true}
+  steps_pill:    {kind: panel, box: [14%, 85.5%, 72%, 6%], fill: "#FFFFFF40", outline: "#FFFFFFAA", radius: 14, default: true}
+  steps:         {kind: stats, box: [14%, 85.5%, 72%, 6%], arrange: inline, size: 2.5%, value_size: 3.1%, items: [steps], default: true}
+variants:
+  square:
+    slots:
+      scene:         {box: [0, 0, 100%, 55%]}
+      time:          {x: 6%, y: 62%, size: 13%, spacing: 0, gap: 0}
+      weekday:       {y: 57%, size: 3.4%}
+      date:          {x: 94%, y: 63%, anchor: top-right, size: 3.6%}
+      card:          {box: [6%, 70%, 56%, 19%]}
+      card_art:      {box: [8%, 71%, 32%, 17%]}
+      card_value:    {box: [40%, 71.5%, 20%, 6%], size: 3%, value_size: 4.2%}
+      battery_card:  {box: [66%, 70%, 28%, 19%]}
+      battery_bar:   {x: 80%, y: 72%, w: 8%, h: 10%}
+      battery_value: {box: [66%, 82.5%, 28%, 5%], size: 2.8%, value_size: 3.4%}
+      steps_pill:    {box: [20%, 91%, 60%, 6%]}
+      steps:         {box: [20%, 91%, 60%, 6%], size: 3%, value_size: 3.8%}
+  round:
+    slots:
+      scene:         {box: [0, 0, 100%, 50%]}
+      time:          {x: 14%, y: 56%, size: 11%, spacing: 0, gap: 0}
+      weekday:       {x: 86%, y: 51.5%, size: 3%}
+      date:          {x: 86%, y: 57.5%, anchor: top-right, size: 3.2%}
+      card:          {box: [14%, 64%, 46%, 16%]}
+      card_art:      {box: [16%, 65%, 26%, 14%]}
+      card_value:    {box: [42%, 65.5%, 16%, 5%], size: 2.6%, value_size: 3.6%}
+      battery_card:  {box: [63%, 64%, 22%, 16%]}
+      battery_bar:   {x: 74%, y: 66%, w: 7%, h: 8%}
+      battery_value: {box: [63%, 74.5%, 22%, 4.5%], size: 2.5%, value_size: 3%}
+      steps_pill:    {box: [28%, 83%, 44%, 6.5%]}
+      steps:         {box: [28%, 83%, 44%, 6.5%], size: 2.6%, value_size: 3.3%}

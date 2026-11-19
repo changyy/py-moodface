@@ -1,0 +1,20 @@
+description: Compact time with a grid of large values (stress, heart rate, steps, battery)
+slots:
+  background: {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  time:       {kind: time, x: 50%, y: 8%, anchor: top, size: 9%, default: true}
+  date:       {kind: date, x: 50%, y: 18.5%, anchor: top, size: 2.9%, format: "MM/DD 週W", default: true}
+  icon:       {kind: art, box: [35%, 25%, 30%, 12%], fit: contain}
+  stats:      {kind: stats, box: [6%, 38%, 88%, 52%], arrange: grid, cols: auto, size: 2.8%, value_size: 6.5%, items: [stress, heart_rate, steps, battery], default: true}
+variants:
+  square:
+    slots:
+      time:  {y: 5%, size: 12%}
+      date:  {y: 19%, size: 3.6%}
+      icon:  {box: [40%, 25%, 20%, 13%]}
+      stats: {box: [6%, 40%, 88%, 52%], cols: 2, size: 3.8%, value_size: 8%}
+  round:
+    slots:
+      time:  {y: 10%, size: 11%}
+      date:  {y: 22.5%, size: 3.4%}
+      icon:  {box: [41%, 28%, 18%, 11%]}
+      stats: {box: [16%, 41%, 68%, 44%], cols: 2, size: 3.4%, value_size: 7.5%}

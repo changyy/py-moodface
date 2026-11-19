@@ -1,0 +1,14 @@
+# Stacked time in the top-left corner, an idol below. Layout: corner.
+name: corner_idol
+title: Corner Idol
+device: band9
+background: "#1E1030"
+layout: corner
+style: {accent: "#FFB0D8", muted: "#B8A8D0"}
+slots:
+  minutes: {color: "#FFB0D8"}
+  character:
+    source: stress_level
+    images: {calm: assets/idol/calm.png, normal: assets/idol/normal.png, medium: assets/idol/medium.png, high: assets/idol/high.png}
+  caption:
+    texts: {calm: 閃閃發光，今天最棒！, normal: 準備上台囉～, medium: 有點緊張…深呼吸, high: 舞台救急！先休息}

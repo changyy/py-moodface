@@ -1,0 +1,14 @@
+# Background follows the season, an overlay follows the time of day. Layout: minimal.
+name: four_seasons
+title: Four Seasons
+device: band9
+layout: minimal
+slots:
+  background:
+    source: season           # month → spring / summer / autumn / winter
+    hemisphere: north
+    images: {spring: assets/season/spring.png, summer: assets/season/summer.png, autumn: assets/season/autumn.png, winter: assets/season/winter.png}
+  overlay:
+    source: time_of_day      # hour → dawn / day / dusk / night
+    images: {dawn: assets/light/dawn.png, day: assets/light/day.png, dusk: assets/light/dusk.png, night: assets/light/night.png}
+  date: {format: "MM/DD 週W"}

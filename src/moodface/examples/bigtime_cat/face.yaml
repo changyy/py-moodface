@@ -1,0 +1,13 @@
+# Large stacked time with a small cat that puffs up under stress. Layout: big-time.
+name: bigtime_cat
+title: Big Time Cat
+device: band9
+background: "#14161F"
+layout: big-time
+style: {muted: "#8A8FA0"}
+slots:
+  minutes: {color: "#F7B266"}
+  character:
+    source: stress_level
+    images: {calm: assets/cat/calm.png, normal: assets/cat/normal.png, medium: assets/cat/medium.png, high: assets/cat/high.png}
+  stats: [steps, stress]

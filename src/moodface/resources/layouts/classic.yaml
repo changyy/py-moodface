@@ -1,0 +1,26 @@
+description: Big time and date on top, artwork in the middle, caption, bar and stats below
+slots:
+  background: {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  time:       {kind: time, x: 50%, y: 6.5%, anchor: top, size: 11%, default: true}
+  date:       {kind: date, x: 50%, y: 19%, anchor: top, size: 3.1%, format: "MM/DD 週W", default: true}
+  character:  {kind: art, box: [2%, 26%, 96%, 39%], fit: contain}
+  caption:    {kind: caption, x: 50%, y: 68.5%, anchor: center, size: 3.3%, source: stress_level}
+  bar:        {kind: bar, x: 50%, y: 73.5%, anchor: center, w: 55%, h: 1.1%, source: stress}
+  stats:      {kind: stats, box: [8%, 76%, 84%, 15%], arrange: rows, size: 2.7%, items: [stress, steps, heart_rate], default: true}
+variants:
+  square:
+    slots:
+      time:      {y: 4%, size: 15%}
+      date:      {y: 20.5%, size: 3.8%}
+      character: {box: [20%, 26%, 60%, 38%]}
+      caption:   {y: 68%, size: 4.2%}
+      bar:       {y: 73.5%, w: 50%, h: 1.6%}
+      stats:     {box: [5%, 78%, 90%, 13%], arrange: inline, size: 3.6%}
+  round:
+    slots:
+      time:      {y: 11%, size: 14%}
+      date:      {y: 26%, size: 3.6%}
+      character: {box: [30%, 32%, 40%, 32%]}
+      caption:   {y: 69.5%, size: 3.8%}
+      bar:       {y: 74.5%, w: 40%, h: 1.4%}
+      stats:     {box: [18%, 77%, 64%, 10%], arrange: inline, size: 3.4%}

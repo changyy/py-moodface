@@ -1,0 +1,16 @@
+# Scene on top, time at the lower left, picture / battery / steps cards. Layout: scene.
+name: scene_winter
+title: Scene Seasons
+device: band9
+background: "#22304F"
+layout: scene
+style: {muted: "#C8D4F0"}
+slots:
+  scene:
+    source: season
+    images: {spring: assets/season/spring.png, summer: assets/season/summer.png, autumn: assets/season/autumn.png, winter: assets/season/winter.png}
+  card_art:
+    source: stress_level
+    images: {calm: assets/cloud/calm.png, normal: assets/cloud/normal.png, medium: assets/cloud/medium.png, high: assets/cloud/high.png}
+  steps:
+    items: [{source: steps, icon: assets/icons/steps.png}]

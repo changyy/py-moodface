@@ -1,0 +1,15 @@
+description: Full-screen picture with the time and date near the bottom
+slots:
+  background: {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  overlay:    {kind: art, box: [0, 0, 100%, 100%], fit: cover}
+  time:       {kind: time, x: 50%, y: 80%, anchor: center, size: 12%, default: true, stroke: 2}
+  date:       {kind: date, x: 50%, y: 88.5%, anchor: center, size: 3.2%, format: "MM/DD 週W", default: true, stroke: 1}
+variants:
+  square:
+    slots:
+      time: {y: 77%, size: 18%}
+      date: {y: 89%, size: 4%}
+  round:
+    slots:
+      time: {y: 68%, size: 16%}
+      date: {y: 80%, size: 4%}

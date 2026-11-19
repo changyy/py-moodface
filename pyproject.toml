@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moodface"
+dynamic = ["version"]
+description = "Animated watch faces for Xiaomi bands and watches that change with your stress level, time of day or season."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Yuan-Yi Chang", email = "changyy.csie@gmail.com" }]
+keywords = ["watchface", "watch face", "xiaomi", "mi band", "smart band", "redmi watch", "stress", "wearable"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = ["Pillow>=10.3", "PyYAML>=6"]
+
+[project.urls]
+Homepage = "https://github.com/changyy/py-moodface"
+Repository = "https://github.com/changyy/py-moodface"
+Issues = "https://github.com/changyy/py-moodface/issues"
+
+[project.scripts]
+moodface = "moodface.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "moodface._version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+moodface = ["resources/*", "resources/layouts/*.yaml", "resources/skill/*.md", "examples/*/*.yaml", "examples/*/assets/**/*.png"]
