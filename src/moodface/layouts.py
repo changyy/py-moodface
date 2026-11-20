@@ -58,6 +58,11 @@ def load_layout(name: str, base: Path) -> dict:
     raise ValueError(f"unknown layout '{name}' (built-in: {', '.join(list_layouts())})")
 
 
+# Devices whose firmware mis-draws 2-digit hour / minute number widgets (see sequence()).
+SPLIT_TIME_DEVICE_TYPES = {"9"}          # Xiaomi Smart Band 8
+SPLIT_DIGITS = {"hour": ("hour_high", "hour_low"), "minute": ("minute_high", "minute_low")}
+
+
 class _L:
     """Layout expansion helpers bound to a face (device + style)."""
 
@@ -113,7 +118,17 @@ class _L:
         for i, (p, w, h, f) in enumerate(measured):
             top = y + (row_h - h) // 2
             base = dict({"name": f"{slot}_{i}", "x": x, "y": top, "size": size, "weight": weight, "color": color}, **sk)
-            if p[0] == "num":
+            if p[0] == "num" and p[2] == 2 and p[1] in SPLIT_DIGITS and \
+                    self.face.device.device_type in SPLIT_TIME_DEVICE_TYPES:
+                # Band 8 firmware shows a 2-digit hour / minute number widget one too high at
+                # times (23:36 drawn as 24:37, seen on a real band); its per-digit sources are
+                # right, so draw the tens and the units as two 1-digit widgets.
+                hi, lo = SPLIT_DIGITS[p[1]]
+                out.append(dict(base, name=f"{slot}_{i}h", type="number", source=hi, digits=1, font=nfont,
+                                zero_pad=True, spacing=0))
+                out.append(dict(base, name=f"{slot}_{i}l", x=x + cw + spacing, type="number", source=lo,
+                                digits=1, font=nfont, zero_pad=True, spacing=0))
+            elif p[0] == "num":
                 out.append(dict(base, type="number", source=p[1], digits=p[2], font=nfont, zero_pad=True, spacing=spacing))
             elif p[0] == "week":
                 out.append(dict(base, type="imagelist", source="week", font=f,

@@ -182,6 +182,20 @@ class RenderTest(unittest.TestCase):
         self.assertEqual(stress_samples(face), [19, 49, 69, 90])
 
 
+class Band8TimeTest(unittest.TestCase):
+    def test_band8_splits_hour_minute_into_digits(self):
+        # Band 8 firmware draws 2-digit hour / minute number widgets one too high at times;
+        # layouts emit per-digit widgets there instead. Band 9 keeps 2-digit widgets.
+        ex = Path(__file__).resolve().parents[1] / "src" / "moodface" / "examples" / "classic_bun"
+        b8 = load_face(ex, device=get_device("band8"))
+        b9 = load_face(ex, device=get_device("band9"))
+        nums8 = [(w.source, w.digits) for w in b8.widgets if w.type == "number"]
+        nums9 = [(w.source, w.digits) for w in b9.widgets if w.type == "number"]
+        self.assertEqual(nums8[:4], [("1000911", 1), ("0911", 1), ("1211", 1), ("1111", 1)])
+        self.assertNotIn(("0811", 2), nums8)
+        self.assertEqual(nums9[:2], [("0811", 2), ("1011", 2)])
+
+
 class ProjectTest(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
