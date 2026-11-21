@@ -64,6 +64,7 @@ Bands, square watches and round watches share the same data sources (stress is `
 | Xiaomi Smart Band 9 | `band9` | band | 366 | 192×490 | ✅ |
 | Xiaomi Smart Band 9 Pro | `band9pro` | band | 367 | 336×480 | ✅ |
 | Xiaomi Smart Band 10 | `band10` | band | 466 | 212×520 | ✅ output is uncompressed (~2 MB) |
+| Xiaomi Smart Band 11 | `band11` | band | 466 | 212×520 | ✅ same build as Band 10; output is uncompressed (~2–3 MB) |
 | Redmi Smart Band Pro | `redmibandpro` | band | 8 | 194×368 | ✅ output is uncompressed |
 | Redmi Watch / POCO Watch | `redmiwatch` | square | 5 | 320×360 | ✅ output is uncompressed |
 | Redmi Watch 2 Lite | `redmiwatch2lite` | square | 10 | 320×360 | ✅ output is uncompressed |
@@ -79,6 +80,8 @@ Bands, square watches and round watches share the same data sources (stress is `
 | Xiaomi Watch S4 | `watchs4` | round | 462 | 466×466 | ✅ |
 
 ❌ means the compiler itself (`compile.exe` v4.22 from Mi Create) rejects the project for that model — the same face compiles for every other device. A newer compiler release may support these models; point `MOODFACE_COMPILER` at it to try.
+
+**Band 11** uses the same screen size and build settings as Band 10. Its faces are uncompressed and fairly large (a full-screen photo face is about 3 MB), so they take a little longer to install.
 
 Legacy models with another data-source scheme (Xiaomi Watch Color, 70mai Saphir) and the original Smart Band 7 are not supported. Draw full-screen artwork for the largest screen you target; `fit: cover` crops it for the others.
 

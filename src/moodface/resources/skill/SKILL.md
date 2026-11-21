@@ -15,6 +15,9 @@ building the `.bin`.
    `moodface compiler status` to show a compiler; if it is missing, tell the user to run
    `moodface compiler setup` themselves — it downloads a third-party program.
 2. **Pick device and layout** — `moodface devices` (default `band9`), `moodface layouts -v`.
+   For a Xiaomi Smart Band 11 use `--device band11` (212×520, same build as `band10`).
+   Band 10/11 output is uncompressed and large (2–3 MB for full-screen photos), so prefer
+   fewer or simpler images for those bands.
 3. **Create the face** in `faces/<name>/`: a `face.yaml` plus pictures in `faces/<name>/assets/`.
    Start from `faces/example/` or a bundled example:
    `python -c "import moodface, pathlib; print(pathlib.Path(moodface.__file__).parent / 'examples')"`.

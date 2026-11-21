@@ -35,10 +35,17 @@ class DevicesTest(unittest.TestCase):
         self.assertEqual(custom.compile_status, "untested")
 
     def test_custom_device(self):
-        d = get_device("band11", width=220, height=540, device_type="999", radius=110)
+        d = get_device("band99", width=220, height=540, device_type="999", radius=110)
         self.assertEqual((d.width, d.height, d.device_type), (220, 540, "999"))
         with self.assertRaises(ValueError):
-            get_device("band11")
+            get_device("band99")
+
+    def test_band11_builds_as_band10(self):
+        b11, b10 = get_device("band11"), get_device("band10")
+        self.assertEqual((b11.width, b11.height, b11.device_type), (212, 520, "466"))
+        self.assertEqual((b11.width, b11.height, b11.device_type),
+                         (b10.width, b10.height, b10.device_type))
+        self.assertEqual(b11.compile_status, "ok")
 
     def test_shapes(self):
         self.assertEqual(get_device("band9").shape, "band")
