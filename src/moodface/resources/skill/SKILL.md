@@ -67,6 +67,9 @@ slots:
   (`id_length: 9` or `12`); `id: time` takes a new 12-digit id from the build time on every build. The band will not install a face whose id is already installed, so to
   update a face the old one must be removed from the band first (or build with another `--id`).
 - Low-level `widgets:` (image, imagelist, number, text, bar, animation) are drawn on top of a layout.
+- In the Mi Fitness app an installed moodface face shows a blank preview with only its name
+  (thumbnails come from Xiaomi's store by id); the band itself shows it normally. Keep `title`
+  short and recognisable, and tell the user about the blank preview so it is not a surprise.
 - Full reference: https://github.com/changyy/py-moodface/blob/main/docs/reference.md
 
 ## Fonts

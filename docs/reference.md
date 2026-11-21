@@ -48,6 +48,10 @@ Every face has an id, 9–12 digits not starting with 0. By default it is derive
 
 The band refuses to install a face whose id is already installed, even if the content changed: to update a face, remove the old one from the band first, or give the new build another id (`id: time` does that on every build; old builds then stay on the band until removed).
 
+### In the Mi Fitness app
+
+Mi Fitness gets face thumbnails from Xiaomi's watch-face store by id. A moodface face is not in the store, so after it is installed Mi Fitness lists it under "My watch faces" (and on the device page) with a **blank preview** and only its name; the band itself shows the face normally. Give faces a short, recognisable `title`, since that name is all Mi Fitness shows.
+
 ## Devices
 
 Bands, square watches and round watches share the same data sources (stress is `0826` everywhere), so one `face.yaml` builds for all of them; layouts switch to a variant per screen shape.
