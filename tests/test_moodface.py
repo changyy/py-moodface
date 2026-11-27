@@ -189,21 +189,18 @@ class RenderTest(unittest.TestCase):
         self.assertEqual(stress_samples(face), [19, 49, 69, 90])
 
 
-class SplitTimeTest(unittest.TestCase):
-    def test_band8_band9_split_hour_minute_into_digits(self):
+class Band8TimeTest(unittest.TestCase):
+    def test_band8_splits_hour_minute_into_digits(self):
         # Band 8 firmware draws 2-digit hour / minute number widgets one too high at times;
-        # layouts emit per-digit widgets on Band 8 and Band 9 instead. Band 9 Pro keeps 2-digit widgets.
+        # layouts emit per-digit widgets there instead. Band 9 keeps 2-digit widgets.
         ex = Path(__file__).resolve().parents[1] / "src" / "moodface" / "examples" / "classic_bun"
         b8 = load_face(ex, device=get_device("band8"))
-        split = [("1000911", 1), ("0911", 1), ("1211", 1), ("1111", 1)]
-        for key in ("band8", "band9"):
-            face = load_face(ex, device=get_device(key))
-            nums = [(w.source, w.digits) for w in face.widgets if w.type == "number"]
-            self.assertEqual(nums[:4], split, key)
-            self.assertNotIn(("0811", 2), nums, key)
-        b9p = load_face(ex, device=get_device("band9pro"))
-        nums9p = [(w.source, w.digits) for w in b9p.widgets if w.type == "number"]
-        self.assertEqual(nums9p[:2], [("0811", 2), ("1011", 2)])
+        b9 = load_face(ex, device=get_device("band9"))
+        nums8 = [(w.source, w.digits) for w in b8.widgets if w.type == "number"]
+        nums9 = [(w.source, w.digits) for w in b9.widgets if w.type == "number"]
+        self.assertEqual(nums8[:4], [("1000911", 1), ("0911", 1), ("1211", 1), ("1111", 1)])
+        self.assertNotIn(("0811", 2), nums8)
+        self.assertEqual(nums9[:2], [("0811", 2), ("1011", 2)])
 
 
 class ProjectTest(unittest.TestCase):
@@ -382,9 +379,8 @@ variants:
 
     def test_time_is_centered(self):
         face = self._face()
-        # Band 9 draws hour / minute as per-digit widgets (time_0h time_0l : time_2h time_2l)
-        hours = [w for w in face.widgets if w.name in ("time_0", "time_0h")][0]
-        minutes = [w for w in face.widgets if w.name in ("time_2", "time_2l")][0]
+        hours = [w for w in face.widgets if w.name == "time_0"][0]
+        minutes = [w for w in face.widgets if w.name == "time_2"][0]
         left, right = hours.x, 192 - (minutes.x + face.widget_size(minutes)[0])
         self.assertLessEqual(abs(left - right), 2)
 
