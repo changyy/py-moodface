@@ -3,7 +3,7 @@ from __future__ import annotations
 
 # name: (fprj id, description)
 SOURCES = {
-    "hour": ("0811", "Hour, 0-23"),
+    "hour": ("0811", "Hour, 0-23 (follows the band's 12/24-hour setting)"),
     "hour_low": ("0911", "Hour, low digit"),
     "hour_high": ("1000911", "Hour, high digit"),
     "minute": ("1011", "Minute, 0-59"),

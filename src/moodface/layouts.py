@@ -60,8 +60,8 @@ def load_layout(name: str, base: Path) -> dict:
 
 # Devices whose firmware mis-draws 2-digit hour / minute number widgets (see sequence()).
 SPLIT_TIME_DEVICE_TYPES = {"9"}          # Xiaomi Smart Band 8
-# Not Band 9: its per-digit hour sources follow the band's 12/24-hour setting (19:34 drawn as
-# 07:34 in 12-hour mode), while the 2-digit hour source is always 0-23.
+# Band 9 keeps 2-digit widgets: it never showed Band 8's "+1" error. On Band 9 every hour source
+# (2-digit and per-digit) follows the band's 12/24-hour setting (20:20 is hour 8 in 12-hour mode).
 SPLIT_DIGITS = {"hour": ("hour_high", "hour_low"), "minute": ("minute_high", "minute_low")}
 
 
